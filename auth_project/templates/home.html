@@ -1,0 +1,49 @@
+@extends("base.html")
+@require(path_for, notes, page,count)
+@def content():
+    @import "headers.html" as hdr
+    @hdr.home_header()
+    <div class="col-md-10 mx-auto">
+        <div class="row">
+            <div class="col-md-11 mx-auto">
+                <div id="notes_cont" class="list-group"> 
+                    @for note in notes:
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div >
+                                <p class="list-group-item p-1 mb-1 bg-dark text-white d-inline">@note["username"]</p>
+                                <br>
+                                <p class="text-break">@note["note"]</p>
+                            </div>
+                            <div class="badge badge-dark badge-pill">@note["time"]</div>
+                        </div>
+                        
+                    @endfor
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <button
+            @if page == "0":
+            class="btn btn-outline-secondary"
+            disabled
+            @endif
+            
+             onclick="location.href='/@str(int(page)-1)'" type="submit" class="page-link" aria-disabled="true">Previous</button>
+    
+      
+          <li class="page-item">
+              
+            <button
+            @if not count:
+            class="btn btn-outline-secondary"
+            disabled
+            @endif 
+            onclick="location.href='/@str(int(page)+1)'" type="submit"  class="page-link" aria-disabled="true">Next</button>
+          </li>
+       
+        </ul>
+      </nav>
+
+@end

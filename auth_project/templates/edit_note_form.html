@@ -1,0 +1,14 @@
+@require(note)
+<div class="modal-header" >
+    <h4 class="modal-title">Edit note</h4>
+  </div>
+<form action="/editnote/@note[0]!s" method="POST">
+    <div class="modal-body">
+        <textarea class="form-control" id="edit" name="edit" rows="3" >@note[2]</textarea>
+    </div>
+    <div class="modal-footer">
+        <button  class="btn btn-success " type="submit" data-toggle="tooltip" data-placement="top" title="Delete">Edit</button>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+    </div>
+</form>

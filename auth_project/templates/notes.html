@@ -1,0 +1,15 @@
+@require(path_for, notes)
+
+<link rel="stylesheet" href="@path_for('static',path='bootstrap.min.css')">
+
+@for note in notes:
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <p class="list-group-item p-1 mb-1 bg-dark text-white d-inline">@note["username"]</p>
+                <br>
+                <p class="text-break">@note["note"]</p>
+            </div>
+            <div class="badge badge-dark badge-pill">@note["time"]</div>
+        </div>
+@endfor
+
